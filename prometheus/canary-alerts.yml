@@ -1,11 +1,42 @@
 groups:
   - name: CanaryAlerts
     rules:
-      - alert: WARNING-NoThroughout
+      - alert: WARNING-NoThroughput
         expr: rate(hello_info_count_total[1m]) == 0
         for: 10s
         labels:
           severity: warning
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "There is no incoming canary traffic"
+          summary: No incoming canary traffic - Hello_info {{ $labels.value}} {{ $value }}
+          description: "There is no incoming canary traffic on info endpoint (hello)"
+
+
+
+      - alert: WARNING-NoThroughput-getAvion
+        expr: rate(avion_getAvion_count_total[1m]) == 0
+        for: 10s
+        labels:
+          severity: warning
+        annotations:
+          summary: No incoming canary traffic - Avion_getAvion {{ $labels.value}} {{ $value }}
+          description: "There is no incoming canary traffic on getAvion endpoint (Avion)"
+
+
+      - alert: WARNING-NoThroughput-getAllAvioane
+        expr: rate(avion_getAllAvioane_count_total[45s]) == 0
+        for: 7s
+        labels:
+          severity: warning
+        annotations:
+          summary: No incoming canary traffic - Avion_getAllAvioane {{ $labels.value}} {{ $value }}
+          description: "There is no incoming canary traffic on getAllAvioane endpoint (Avion)"
+
+
+      - alert: WARNING-NoThroughput-addAvion
+        expr: rate(avion_addAvion_count_total[30m]) == 0
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: No incoming canary traffic - Avion_addAvion {{ $labels.value}} {{ $value }}
+          description: "There is no incoming canary traffic on addAvion endpoint (Avion)"

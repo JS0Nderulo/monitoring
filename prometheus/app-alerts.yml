@@ -20,6 +20,7 @@ groups:
           description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 
+
       - alert: WARNING-HighThroughput-Add
         expr: rate(avion_addAvion_count_total[1m]) > 6
         for: 10s
@@ -37,6 +38,7 @@ groups:
         annotations:
           summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
           description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
 
       - alert: WARNING-HighThroughput-Update
         expr: rate(avion_updateAvion_count_total[5m]) > 20
@@ -56,6 +58,7 @@ groups:
           summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
           description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
+
       - alert: WARNING-HighThroughput-GetAll
         expr: rate(avion_getAllAvioane_count_total[50s]) > 10
         for: 8s
@@ -65,9 +68,66 @@ groups:
           summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
           description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-      - alert: CRITICAL-HighThroughput-Update
+      - alert: CRITICAL-HighThroughput-GetAll
         expr: rate(avion_getAllAvioane_count_total[50s]) > 35
         for: 8s
+        labels:
+          severity: critical
+        annotations:
+          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
+          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+      - alert: WARNING-HighThroughput-Get
+        expr: rate(avion_getAvion_count_total[1m]) > 10
+        for: 12s
+        labels:
+          severity: warning
+        annotations:
+          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
+          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: CRITICAL-HighThroughput-Get
+        expr: rate(avion_getAvion_count_total[1m]) > 40
+        for: 12s
+        labels:
+          severity: critical
+        annotations:
+          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
+          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+      - alert: WARNING-HighThroughput-Delete
+        expr: rate(avion_deleteAvion_count_total[30s]) > 3
+        for: 7s
+        labels:
+          severity: warning
+        annotations:
+          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
+          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: CRITICAL-HighThroughput-Delete
+        expr: rate(avion_deleteAvion_count_total[40s]) > 10
+        for: 7s
+        labels:
+          severity: critical
+        annotations:
+          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
+          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+      - alert: WARNING-HighThroughput-Filter
+        expr: rate(avion_getAvioaneByProperties_count_total[2m]) > 15
+        for: 20s
+        labels:
+          severity: warning
+        annotations:
+          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
+          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: CRITICAL-HighThroughput-Filter
+        expr: rate(avion_getAvioaneByProperties_count_total[2m]) > 70
+        for: 20s
         labels:
           severity: critical
         annotations:

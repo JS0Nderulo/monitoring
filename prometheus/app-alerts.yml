@@ -106,13 +106,13 @@ groups:
           summary: Increased deleteAvion rate {{ $labels.value}} {{ $value }}
           description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-      - alert: CRITICAL-HighThroughput-deleteAvion
-        expr: rate(avion_deleteAvion_count_total[40s]) > 10
+      - alert: CRITICAL-HighThroughput-removeAvion
+        expr: rate(avion_removeAvion_count_total[40s]) > 10
         for: 7s
         labels:
           severity: critical
         annotations:
-          summary: Increased deleteAvion rate {{ $labels.value}} {{ $value }}
+          summary: Increased removeAvion rate {{ $labels.value}} {{ $value }}
           description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 

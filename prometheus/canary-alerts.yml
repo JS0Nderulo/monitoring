@@ -40,3 +40,34 @@ groups:
         annotations:
           summary: No incoming canary traffic - Avion_addAvion {{ $labels.value}} {{ $value }}
           description: "There is no incoming canary traffic on addAvion endpoint (Avion)"
+
+
+      - alert: WARNING-NoThroughput-updateAvion
+        expr: rate(avion_updateAvion_count_total[20m]) == 0
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: No incoming canary traffic - Avion_updateAvion {{ $labels.value}} {{ $value }}
+          description: "There is no incoming canary traffic on updateAvion endpoint (Avion)"
+
+
+      - alert: WARNING-NoThroughput-removeAvion
+        expr: rate(avion_removeAvion_count_total[40m]) == 0
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: No incoming canary traffic - Avion_removeAvion {{ $labels.value}} {{ $value }}
+          description: "There is no incoming canary traffic on removeAvion endpoint (Avion)"
+
+
+      - alert: WARNING-NoThroughput-getAvioaneByProperties
+        expr: rate(avion_getAvioaneByProperties_count_total[75s]) == 0
+        for: 10s
+        labels:
+          severity: warning
+        annotations:
+          summary: No incoming canary traffic - Avion_getAvioaneByProperties {{ $labels.value}} {{ $value }}
+          description: "There is no incoming canary traffic on getAvioaneByProperties endpoint (Avion)"
+

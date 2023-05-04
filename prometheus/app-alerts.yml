@@ -8,7 +8,7 @@ groups:
           severity: warning
         annotations:
           summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
       - alert: CRITICAL-HighThroughput
         expr: rate(hello_info_count_total[1m]) > 50
@@ -17,119 +17,119 @@ groups:
           severity: critical
         annotations:
           summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 
 
-      - alert: WARNING-HighThroughput-Add
+      - alert: WARNING-HighThroughput-addAvion
         expr: rate(avion_addAvion_count_total[1m]) > 6
         for: 10s
         labels:
           severity: warning
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased addAvion rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-      - alert: CRITICAL-HighThroughput-Add
+      - alert: CRITICAL-HighThroughput-addAvion
         expr: rate(avion_addAvion_count_total[1m]) > 15
         for: 10s
         labels:
           severity: critical
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased addAvion rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 
-      - alert: WARNING-HighThroughput-Update
+      - alert: WARNING-HighThroughput-updateAvion
         expr: rate(avion_updateAvion_count_total[5m]) > 20
         for: 30s
         labels:
           severity: warning
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased updateAvion rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-      - alert: CRITICAL-HighThroughput-Update
+      - alert: CRITICAL-HighThroughput-updateAvion
         expr: rate(avion_updateAvion_count_total[5m]) > 60
         for: 30s
         labels:
           severity: critical
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased updateAvion rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 
-      - alert: WARNING-HighThroughput-GetAll
+      - alert: WARNING-HighThroughput-getAllAvioane
         expr: rate(avion_getAllAvioane_count_total[50s]) > 10
         for: 8s
         labels:
           severity: warning
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased getAllAvioane retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-      - alert: CRITICAL-HighThroughput-GetAll
+      - alert: CRITICAL-HighThroughput-getAllAvioane
         expr: rate(avion_getAllAvioane_count_total[50s]) > 35
         for: 8s
         labels:
           severity: critical
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased getAllAvioane retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 
-      - alert: WARNING-HighThroughput-Get
+      - alert: WARNING-HighThroughput-getAvion
         expr: rate(avion_getAvion_count_total[1m]) > 10
         for: 12s
         labels:
           severity: warning
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased getAvion retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-      - alert: CRITICAL-HighThroughput-Get
+      - alert: CRITICAL-HighThroughput-getAvion
         expr: rate(avion_getAvion_count_total[1m]) > 40
         for: 12s
         labels:
           severity: critical
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased getAvion retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 
-      - alert: WARNING-HighThroughput-Delete
+      - alert: WARNING-HighThroughput-deleteAvion
         expr: rate(avion_deleteAvion_count_total[30s]) > 3
         for: 7s
         labels:
           severity: warning
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased deleteAvion rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-      - alert: CRITICAL-HighThroughput-Delete
+      - alert: CRITICAL-HighThroughput-deleteAvion
         expr: rate(avion_deleteAvion_count_total[40s]) > 10
         for: 7s
         labels:
           severity: critical
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased deleteAvion rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 
-      - alert: WARNING-HighThroughput-Filter
+      - alert: WARNING-HighThroughput-getAvioaneByProperties
         expr: rate(avion_getAvioaneByProperties_count_total[2m]) > 15
         for: 20s
         labels:
           severity: warning
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased getAvioaneByProperties retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-      - alert: CRITICAL-HighThroughput-Filter
+      - alert: CRITICAL-HighThroughput-getAvioaneByProperties
         expr: rate(avion_getAvioaneByProperties_count_total[2m]) > 70
         for: 20s
         labels:
           severity: critical
         annotations:
-          summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          summary: Increased getAvioaneByProperties retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"

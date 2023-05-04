@@ -14,6 +14,6 @@ receivers:
   - to: 'stefinitu@gmail.com'
     from: 'mylifeisempty1234@gmail.com'
     smarthost: smtp.gmail.com:587
-    auth_username: 'mylifeisempty1234'
-    #auth_identity: 'mylifeisempty1234'
+    auth_username: 'mylifeisempty1234@gmail.com'
+    auth_identity: 'mylifeisempty1234@gmail.com'
     auth_password: 'jgpuhjelbizkfyuo'

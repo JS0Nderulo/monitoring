@@ -8,7 +8,7 @@ groups:
           severity: warning
         annotations:
           summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
       - alert: CRITICAL-HighThroughput
         expr: rate(hello_info_count_total[1m]) > 50
@@ -17,4 +17,119 @@ groups:
           severity: critical
         annotations:
           summary: Increased info retrieval rate {{ $labels.value}} {{ $value }}
-          description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+
+      - alert: WARNING-HighThroughput-addAvion
+        expr: rate(avion_addAvion_count_total[1m]) > 6
+        for: 10s
+        labels:
+          severity: warning
+        annotations:
+          summary: Increased addAvion rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: CRITICAL-HighThroughput-addAvion
+        expr: rate(avion_addAvion_count_total[1m]) > 15
+        for: 10s
+        labels:
+          severity: critical
+        annotations:
+          summary: Increased addAvion rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+      - alert: WARNING-HighThroughput-updateAvion
+        expr: rate(avion_updateAvion_count_total[5m]) > 20
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: Increased updateAvion rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: CRITICAL-HighThroughput-updateAvion
+        expr: rate(avion_updateAvion_count_total[5m]) > 60
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: Increased updateAvion rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+      - alert: WARNING-HighThroughput-getAllAvioane
+        expr: rate(avion_getAllAvioane_count_total[50s]) > 10
+        for: 8s
+        labels:
+          severity: warning
+        annotations:
+          summary: Increased getAllAvioane retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: CRITICAL-HighThroughput-getAllAvioane
+        expr: rate(avion_getAllAvioane_count_total[50s]) > 35
+        for: 8s
+        labels:
+          severity: critical
+        annotations:
+          summary: Increased getAllAvioane retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+      - alert: WARNING-HighThroughput-getAvion
+        expr: rate(avion_getAvion_count_total[1m]) > 10
+        for: 12s
+        labels:
+          severity: warning
+        annotations:
+          summary: Increased getAvion retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: CRITICAL-HighThroughput-getAvion
+        expr: rate(avion_getAvion_count_total[1m]) > 40
+        for: 12s
+        labels:
+          severity: critical
+        annotations:
+          summary: Increased getAvion retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+      - alert: WARNING-HighThroughput-removeAvion
+        expr: rate(avion_removeAvion_count_total[30s]) > 3
+        for: 7s
+        labels:
+          severity: warning
+        annotations:
+          summary: Increased removeAvion rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: CRITICAL-HighThroughput-removeAvion
+        expr: rate(avion_removeAvion_count_total[40s]) > 10
+        for: 7s
+        labels:
+          severity: critical
+        annotations:
+          summary: Increased removeAvion rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+      - alert: WARNING-HighThroughput-getAvioaneByProperties
+        expr: rate(avion_getAvioaneByProperties_count_total[2m]) > 15
+        for: 20s
+        labels:
+          severity: warning
+        annotations:
+          summary: Increased getAvioaneByProperties retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Elevated throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: CRITICAL-HighThroughput-getAvioaneByProperties
+        expr: rate(avion_getAvioaneByProperties_count_total[2m]) > 70
+        for: 20s
+        labels:
+          severity: critical
+        annotations:
+          summary: Increased getAvioaneByProperties retrieval rate {{ $labels.value}} {{ $value }}
+          description: "Suspiciously high throughput\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"

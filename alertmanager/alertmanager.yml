@@ -11,9 +11,9 @@ route:
 receivers:
 - name: 'email'
   email_configs:
-  - to: 'EMAIL@gmail.com'
-    from: 'EMAIL@gmail.com'
+  - to: 'stefinitu@gmail.com'
+    from: 'mylifeisempty1234@gmail.com'
     smarthost: smtp.gmail.com:587
-    auth_username: 'EMAIL@gmail.com'
-    auth_identity: 'EMAIL@gmail.com'
-    auth_password: 'GENERATE ONE FROM https://security.google.com/settings/security/apppasswords'
+    auth_username: 'mylifeisempty1234@gmail.com'
+    auth_identity: 'mylifeisempty1234@gmail.com'
+    auth_password: 'jgpuhjelbizkfyuo'

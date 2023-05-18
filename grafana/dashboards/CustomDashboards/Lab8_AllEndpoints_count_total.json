@@ -1,0 +1,793 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": [],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "8.4.3"
+    },
+    {
+      "type": "panel",
+      "id": "piechart",
+      "name": "Pie chart",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "description": "Panel consisting of the total numbers of each request in AvionController for the given period of time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 4,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvion_count_total",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvion",
+          "refId": "# of getAvion (/avion/{number}) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAllAvioane_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAllAvioane",
+          "refId": "# of getAllAvioane (/avion) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_addAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "addAvion",
+          "refId": "# of addAvion (/avion) POST requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_removeAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "removeAvion",
+          "refId": "# of removeAvion (/avion/{number}) DELETE requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_updateAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "updateAvion",
+          "refId": "# of updateAvion (/avion/{number}) PUT requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvioaneByProperties_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvioaneByProperties",
+          "refId": "# of getAvioaneByProperties (/avionfilter) GET requests"
+        }
+      ],
+      "title": "# of requests from AvionController",
+      "type": "timeseries"
+    },
+    {
+      "description": "Panel consisting of the total numbers of each request in AvionController for the given period of time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvion_count_total",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvion",
+          "refId": "# of getAvion (/avion/{number}) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAllAvioane_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAllAvioane",
+          "refId": "# of getAllAvioane (/avion) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_addAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "addAvion",
+          "refId": "# of addAvion (/avion) POST requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_removeAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "removeAvion",
+          "refId": "# of removeAvion (/avion/{number}) DELETE requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_updateAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "updateAvion",
+          "refId": "# of updateAvion (/avion/{number}) PUT requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvioaneByProperties_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvioaneByProperties",
+          "refId": "# of getAvioaneByProperties (/avionfilter) GET requests"
+        }
+      ],
+      "title": "# of requests from AvionController",
+      "type": "timeseries"
+    },
+    {
+      "description": "Panel consisting of the total numbers of each request in AvionController for the given period of time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 4,
+      "options": {
+        "displayLabels": [
+          "percent"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "right",
+          "values": []
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvion_count_total",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvion",
+          "refId": "# of getAvion (/avion/{number}) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAllAvioane_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAllAvioane",
+          "refId": "# of getAllAvioane (/avion) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_addAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "addAvion",
+          "refId": "# of addAvion (/avion) POST requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_removeAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "removeAvion",
+          "refId": "# of removeAvion (/avion/{number}) DELETE requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_updateAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "updateAvion",
+          "refId": "# of updateAvion (/avion/{number}) PUT requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvioaneByProperties_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvioaneByProperties",
+          "refId": "# of getAvioaneByProperties (/avionfilter) GET requests"
+        }
+      ],
+      "title": "# of requests from AvionController",
+      "type": "piechart"
+    },
+    {
+      "description": "Panel consisting of the total numbers of each request in AvionController for the given period of time",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 5,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvion_count_total",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvion",
+          "refId": "# of getAvion (/avion/{number}) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAllAvioane_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAllAvioane",
+          "refId": "# of getAllAvioane (/avion) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_addAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "addAvion",
+          "refId": "# of addAvion (/avion) POST requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_removeAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "removeAvion",
+          "refId": "# of removeAvion (/avion/{number}) DELETE requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_updateAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "updateAvion",
+          "refId": "# of updateAvion (/avion/{number}) PUT requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvioaneByProperties_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvioaneByProperties",
+          "refId": "# of getAvioaneByProperties (/avionfilter) GET requests"
+        }
+      ],
+      "title": "# of requests from AvionController",
+      "type": "gauge"
+    },
+    {
+      "description": "Panel consisting of the total numbers of each request in AvionController for the given period of time",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 6,
+        "y": 18
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvion_count_total",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvion",
+          "refId": "# of getAvion (/avion/{number}) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAllAvioane_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAllAvioane",
+          "refId": "# of getAllAvioane (/avion) GET requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_addAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "addAvion",
+          "refId": "# of addAvion (/avion) POST requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_removeAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "removeAvion",
+          "refId": "# of removeAvion (/avion/{number}) DELETE requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_updateAvion_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "updateAvion",
+          "refId": "# of updateAvion (/avion/{number}) PUT requests"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "avion_getAvioaneByProperties_count_total",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "getAvioaneByProperties",
+          "refId": "# of getAvioaneByProperties (/avionfilter) GET requests"
+        }
+      ],
+      "title": "# of requests from AvionController",
+      "type": "stat"
+    }
+  ],
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2023-05-03T14:48:46.517Z",
+    "to": "2023-05-03T16:35:26.090Z"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Lab8",
+  "uid": "y0KQ6ayVz",
+  "version": 3,
+  "weekStart": ""
+}
